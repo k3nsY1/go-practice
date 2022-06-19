@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // Реализация интерфейса, пример
 // type vehicle interface {
 // 	move()
@@ -21,8 +23,21 @@ package main
 // const valString = "Charlie, today is a good day"
 
 // const refString = "Mary had a little lamb"
-
+// func Add(x int, y int) int {
+// 	return x + y
+// }
+func Swap(x, y string) (string, string) {
+	return y, x
+}
 func main() {
+	a, b := Swap("world", "hello")
+	fmt.Println(a, b)
+	// fmt.Println(Add(42, 13))
+	// fmt.Print(math.Pi)
+	// fmt.Printf("Now you have %g problems.\n", math.Sqrt(7))
+	//Random number
+	// fmt.Println("the number is", rand.Seed())
+	// fmt.Println("My favorite number is", rand.Intn(10))
 	// items := []int{1, 3, 5, 9, 12}
 	// fmt.Println(BinarySearch(items, 6))
 	// x := math.Log2(256)
