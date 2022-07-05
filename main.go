@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 // Реализация интерфейса, пример
 // type vehicle interface {
 // 	move()
@@ -28,12 +24,18 @@ import (
 // func Add(x int, y int) int {
 // 	return x + y
 // }
-func Swap(x, y string) (string, string) {
-	return y, x
-}
+// func Swap(x, y string) (string, string) {
+// 	return y, x
+// }
+
 func main() {
-	a, b := Swap("world", "hello")
-	fmt.Println(a, b)
+	count := []int{}
+	for i := 0; i < len(count); i++ {
+
+	}
+	// minPartitions("1234")
+	// a, b := Swap("world", "hello")
+	// fmt.Println(a, b)
 	// fmt.Println(Add(42, 13))
 	// fmt.Print(math.Pi)
 	// fmt.Printf("Now you have %g problems.\n", math.Sqrt(7))

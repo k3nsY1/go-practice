@@ -1,6 +1,9 @@
 package main
 
-import "strconv"
+import (
+	"log"
+	"strconv"
+)
 
 //Бинарный поиск
 func BinarySearch(list []int, item int) bool {
@@ -39,4 +42,18 @@ func isPalindrome(x int) bool {
 		return true
 	}
 	return false
+}
+
+func minPartitions(n string) int {
+	g := 0
+	for _, v := range n {
+		ch, err := strconv.Atoi(string(v))
+		if err != nil {
+			log.Fatal(err)
+		}
+		for g < ch {
+			g++
+		}
+	}
+	return g
 }
