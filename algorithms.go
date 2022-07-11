@@ -57,3 +57,34 @@ func minPartitions(n string) int {
 	}
 	return g
 }
+
+//Поиск самого маленького элемента массива
+func Smallest(a []int) int {
+	smallest := a[0]
+	for _, v := range a {
+		if v < smallest {
+			smallest = v
+		}
+	}
+	return smallest
+}
+
+//Сортировка выбором
+func SelectionSort(ar []int) {
+	for i := 0; i < len(ar); i++ {
+		min := i
+		for j := i + 1; j < len(ar); j++ {
+			if ar[min] > ar[j] {
+				min = j
+			}
+		}
+		if min != i {
+			swap(ar, i, min)
+		}
+	}
+}
+func swap(ar []int, i, j int) {
+	tmp := ar[i]
+	ar[i] = ar[j]
+	ar[j] = tmp
+}

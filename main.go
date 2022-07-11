@@ -29,10 +29,13 @@ package main
 // }
 
 func main() {
-	count := []int{}
-	for i := 0; i < len(count); i++ {
 
-	}
+	// count := []int{}
+	// for i := 0; i < len(count); i++ {
+	// }s
+	// a := []int{14, 12, 10, 9}
+	// SelectionSort(a)
+	// fmt.Println(a)
 	// minPartitions("1234")
 	// a, b := Swap("world", "hello")
 	// fmt.Println(a, b)
