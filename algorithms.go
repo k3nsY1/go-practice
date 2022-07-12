@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"strconv"
 )
@@ -23,6 +24,16 @@ func BinarySearch(list []int, item int) bool {
 		return false
 	}
 	return true
+}
+
+// Рекурсия отсчета
+func CountDown(i int) {
+	fmt.Println(i)
+	if i <= 0 {
+		return
+	} else {
+		CountDown(i - 1)
+	}
 }
 
 //Проверка на палиндром к примеру 121, 543212345 и тд.

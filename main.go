@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // Реализация интерфейса, пример
 // type vehicle interface {
 // 	move()
@@ -27,9 +29,17 @@ package main
 // func Swap(x, y string) (string, string) {
 // 	return y, x
 // }
+func fact(x int) int {
+	if x == 1 {
+		return 1
+	} else {
+		return x * fact(x-1)
+	}
+}
 
 func main() {
-
+	fmt.Println(fact(4))
+	// CountDown(4)
 	// count := []int{}
 	// for i := 0; i < len(count); i++ {
 	// }s
