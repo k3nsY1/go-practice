@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // Реализация интерфейса, пример
 // type vehicle interface {
 // 	move()
@@ -35,8 +37,14 @@ package main
 // 	}
 // }
 
-func PointOne(n *int)
+func PointOne(n *int) {
+	*n = 1
+}
 func main() {
+	n := 0
+
+	PointOne(&n)
+	fmt.Println(n)
 	// fmt.Println(fact(4))
 	// CountDown(4)
 	// count := []int{}
