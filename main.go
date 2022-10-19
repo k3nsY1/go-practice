@@ -1,9 +1,44 @@
 package main
 
 import (
+	"fmt"
 	"sort"
 	"strconv"
+	"strings"
 )
+
+func kidsWithCandies(candies []int, extraCandies int) []bool {
+	maxValue := 0
+	for _, v := range candies {
+		if v > maxValue {
+			maxValue = v
+		}
+	}
+	t := []bool{}
+	for _, v := range candies {
+		if v+extraCandies >= maxValue {
+			t = append(t, true)
+		} else {
+			t = append(t, false)
+		}
+	}
+	return t
+}
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+func checkTree(root *TreeNode) bool {
+	t := root
+	if t.Val == t.Left.Val+t.Right.Val {
+		return true
+	} else {
+		return false
+	}
+}
 
 // func Num(n int) {
 // 	fmt.Println(n)
@@ -19,6 +54,115 @@ import (
 // 	}
 
 // }
+
+// func qSort(a []int) []int {
+// 	if len(a) < 2 {
+// 		return a
+// 	}
+// 	low := a[0]
+// 	higher := []int{}
+// 	if low < a[1] {
+// 		a[0], a[1] = a[1], a[0]
+// 		highe
+// 	}
+// 	a = qSort(a) + qSort(low) + qSort(higher)
+// 	return a
+// }
+
+// func qSort(a []int) []int {
+// 	if len(a) < 2 {
+// 		return a
+// 	}
+// 	pivot := a[0]
+// 	less := []int{}
+// 	greater := []int{}
+// 	for _, v = range a {
+// 		if v <= pivot {
+// 			less = append(less, v)
+// 		}
+// 		if v > pivot {
+// 			greater = append(greater, v)
+// 		}
+// 	}
+
+// 	return nil
+// }
+
+// func decompressRLElist(nums []int) []int {
+// 	newNums := []int{}
+// 	for i := 0; i < len(nums); i++ {
+// 		nums[i] +
+// 	}
+// 	return newNums
+// }
+
+func interpret(command string) string {
+	command = strings.ReplaceAll(command, "(al)", "al")
+	command = strings.ReplaceAll(command, "()", "o")
+	return command
+}
+
+func numJewelsInStones(jewels string, stones string) int {
+	count := 0
+	for _, v := range jewels {
+		for _, k := range stones {
+			if v == k {
+				count += 1
+			}
+		}
+	}
+	return count
+}
+
+func subtractProductAndSum(n int) int {
+	strN := strconv.Itoa(n)
+	arr := []int{}
+	sum, mult, diff := 0, 1, 0
+
+	for _, v := range strN {
+		newInt, err := strconv.Atoi(string(v))
+		if err != nil {
+			fmt.Println(err)
+		}
+		arr = append(arr, newInt)
+	}
+	for _, v := range arr {
+		sum += v
+		mult *= v
+	}
+	diff = mult - sum
+	fmt.Println(sum, mult)
+	return diff
+}
+
+func maxInt(nums []int) int {
+	max := nums[0]
+	for _, v := range nums {
+		if max < v {
+			max = v
+		}
+	}
+	return max
+}
+
+func sum1(nums []int) int {
+	if len(nums) > 1 {
+		return nums[0] + sum(nums[1:])
+	}
+	return nums[0]
+}
+
+func sum(nums []int) int {
+	total := 0
+	if len(nums) > 0 {
+		for _, v := range nums {
+			total += v
+		}
+	} else {
+		total = 0
+	}
+	return total
+}
 
 func numIdenticalPairs(nums []int) int {
 	count := 0
@@ -46,6 +190,12 @@ func minimumSum(num int) int {
 	//return 77
 }
 func main() {
+	fmt.Println(interpret("(al)G(al)()()G"))
+	// fmt.Println(kidsWithCandies([]int{2, 3, 5, 1, 3}, 3))
+	// fmt.Println(interpret("G()(al)"))
+	// fmt.Println(subtractProductAndSum(234))
+	// fmt.Println(qSort([]int{12, 10}))
+	// fmt.Println(maxInt([]int{20, 30, 50, 60, 40}))
 	// fmt.Println(minimumSum(2894))
 	// arr := [4]int{
 	// 	(2894 % 10000) / 1000,
