@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"io"
+	"os"
 	"sort"
 	"strconv"
 	"strings"
@@ -73,17 +75,8 @@ func checkTree(root *TreeNode) bool {
 // 	if len(a) < 2 {
 // 		return a
 // 	}
-// 	pivot := a[0]
-// 	less := []int{}
-// 	greater := []int{}
-// 	for _, v = range a {
-// 		if v <= pivot {
-// 			less = append(less, v)
-// 		}
-// 		if v > pivot {
-// 			greater = append(greater, v)
-// 		}
-// 	}
+
+// }
 
 // 	return nil
 // }
@@ -164,6 +157,14 @@ func sum(nums []int) int {
 	return total
 }
 
+func restoreString(s string, indices []int) string {
+	newString := make([]rune, len(s))
+	for i, v := range s {
+		newString[indices[i]] = v
+	}
+	return string(newString)
+}
+
 func numIdenticalPairs(nums []int) int {
 	count := 0
 	for i := 0; i < len(nums); i++ {
@@ -189,8 +190,59 @@ func minimumSum(num int) int {
 	return dig[0]*10 + dig[1]*10 + dig[2] + dig[3]
 	//return 77
 }
+
+func numberOfSteps(num int) int {
+	steps := 0
+	for num != 0 {
+		if num%2 == 0 {
+			num = num / 2
+		} else {
+			num = num - 1
+		}
+		steps++
+	}
+	return steps
+}
+
+//	func sortSentence(s string) string {
+//		idx := []
+//		words := strings.Split(s, " ")
+//		for _, i := range words {
+//			fmt.Println(string(i[len(i)-1]))
+//		}
+//		return words[0]
+//	}
+func ReturnErrorPtr() *error {
+	var err *error
+	return err
+}
+
+type MyErr struct{}
+
+func (me MyErr) Error() string {
+	return "My error string"
+}
+
+func ReturnCustomErr() error {
+	var customErr *MyErr
+	return customErr
+}
 func main() {
-	fmt.Println(interpret("(al)G(al)()()G"))
+	myString := ""
+	arguments := os.Args
+	if len(arguments) == 1 {
+		myString = "Please give me one argument!"
+	} else {
+		myString = arguments[1]
+	}
+	io.WriteString(os.Stdout, myString)
+	io.WriteString(os.Stdout, "\n")
+	// sortSentence("is2 sentence4 This1 a3")
+	// fmt.Println(numberOfSteps(14))
+	// m := "My name is Tima"
+	// lowerCase := strings.ToLower(m)
+	// fmt.Println(lowerCase)
+	// fmt.Println(interpret("(al)G(al)()()G"))
 	// fmt.Println(kidsWithCandies([]int{2, 3, 5, 1, 3}, 3))
 	// fmt.Println(interpret("G()(al)"))
 	// fmt.Println(subtractProductAndSum(234))
