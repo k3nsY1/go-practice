@@ -1,9 +1,8 @@
 package main
 
 import (
+	"errors"
 	"fmt"
-	"io"
-	"os"
 	"sort"
 	"strconv"
 	"strings"
@@ -41,53 +40,6 @@ func checkTree(root *TreeNode) bool {
 		return false
 	}
 }
-
-// func Num(n int) {
-// 	fmt.Println(n)
-// }
-
-// func smallestEventMultiple(n int) int {
-
-// 	if n%2 == 0 {
-
-// 		return n
-// 	} else {
-// 		return n * 2
-// 	}
-
-// }
-
-// func qSort(a []int) []int {
-// 	if len(a) < 2 {
-// 		return a
-// 	}
-// 	low := a[0]
-// 	higher := []int{}
-// 	if low < a[1] {
-// 		a[0], a[1] = a[1], a[0]
-// 		highe
-// 	}
-// 	a = qSort(a) + qSort(low) + qSort(higher)
-// 	return a
-// }
-
-// func qSort(a []int) []int {
-// 	if len(a) < 2 {
-// 		return a
-// 	}
-
-// }
-
-// 	return nil
-// }
-
-// func decompressRLElist(nums []int) []int {
-// 	newNums := []int{}
-// 	for i := 0; i < len(nums); i++ {
-// 		nums[i] +
-// 	}
-// 	return newNums
-// }
 
 func interpret(command string) string {
 	command = strings.ReplaceAll(command, "(al)", "al")
@@ -204,177 +156,35 @@ func numberOfSteps(num int) int {
 	return steps
 }
 
-//	func sortSentence(s string) string {
-//		idx := []
-//		words := strings.Split(s, " ")
-//		for _, i := range words {
-//			fmt.Println(string(i[len(i)-1]))
-//		}
-//		return words[0]
-//	}
 func ReturnErrorPtr() *error {
 	var err *error
 	return err
 }
 
-type MyErr struct{}
-
-func (me MyErr) Error() string {
-	return "My error string"
-}
-
-func ReturnCustomErr() error {
-	var customErr *MyErr
-	return customErr
+func returnError(a, b int) error {
+	if a == b {
+		err := errors.New("Error in returnError() function!")
+		return err
+	} else {
+		return nil
+	}
 }
 func main() {
-	myString := ""
-	arguments := os.Args
-	if len(arguments) == 1 {
-		myString = "Please give me one argument!"
+	err := returnError(1, 2)
+	if err == nil {
+		fmt.Println("returnError() ended normally")
 	} else {
-		myString = arguments[1]
+		fmt.Println(err)
 	}
-	io.WriteString(os.Stdout, myString)
-	io.WriteString(os.Stdout, "\n")
-	// sortSentence("is2 sentence4 This1 a3")
-	// fmt.Println(numberOfSteps(14))
-	// m := "My name is Tima"
-	// lowerCase := strings.ToLower(m)
-	// fmt.Println(lowerCase)
-	// fmt.Println(interpret("(al)G(al)()()G"))
-	// fmt.Println(kidsWithCandies([]int{2, 3, 5, 1, 3}, 3))
-	// fmt.Println(interpret("G()(al)"))
-	// fmt.Println(subtractProductAndSum(234))
-	// fmt.Println(qSort([]int{12, 10}))
-	// fmt.Println(maxInt([]int{20, 30, 50, 60, 40}))
-	// fmt.Println(minimumSum(2894))
-	// arr := [4]int{
-	// 	(2894 % 10000) / 1000,
-	// 	(2894 % 1000) / 100,
-	// 	(2894 % 100) / 10,
-	// 	(2894 % 10),
-	// }
-	// fmt.Println(arr)
-	// ch := make(chan int)
-	// // ch <- 111
-	// go func() {
-	// 	ch <- 111
-	// }()
 
-	// val := <-ch
-	// fmt.Printf("got %v\n", val)
-	// for i := 0; i < 5; i++ {
-	// 	ii := i
-	// 	go func() {
+	err = returnError(10, 10)
+	if err == nil {
+		fmt.Println("returnError() ended normally!")
+	} else {
+		fmt.Println(err)
+	}
 
-	// 		Num(ii)
-	// 	}()
-	// }
-	// time.Sleep(100 * time.Millisecond)
+	if err.Error() == "Error in returnError() function!" {
+		fmt.Println("!!")
+	}
 }
-
-// func foobyval(n int) {
-// 	fmt.Println(n)
-// }
-
-// func main() {
-// 	for i := 0; i < 5; i++ {
-// 		go foobyval(i)
-// 	}
-
-// 	time.Sleep(100 * time.Millisecond)
-// }
-
-// Реализация интерфейса, пример
-// type vehicle interface {
-// 	move()
-// }
-
-// type Car struct{}
-
-// func (c Car) move() {
-// 	fmt.Println("Автомобиль едет")
-// }
-
-// func main() {
-// 	var bmw vehicle = Car{}
-
-// 	bmw.move()
-// }
-
-//Работа со строками
-// const valString = "Charlie, today is a good day"
-
-// const refString = "Mary had a little lamb"
-// func Add(x int, y int) int {
-// 	return x + y
-// }
-// func Swap(x, y string) (string, string) {
-// 	return y, x
-// }
-// func fact(x int) int {
-// 	if x == 1 {
-// 		return 1
-// 	} else {
-// 		return x * fact(x-1)
-// 	}
-// }
-
-// func main() {
-// values := []string{"1, 2, 3"}
-// for _, val := range values {
-// 	go func(val string) {
-// 		fmt.Println(val)
-// 	}(val)
-// }
-// text := "hello my name is Tima"
-// arr := strings.Fields(text)
-// for _, v := range arr {
-// 	fmt.Println(v)
-// }
-// var myGreeting map[string]string
-
-// fmt.Println(myGreeting)
-// fmt.Println(myGreeting == nil)
-// fmt.Println(fact(4))
-// CountDown(4)
-// count := []int{}
-// for i := 0; i < len(count); i++ {
-// }s
-// a := []int{14, 12, 10, 9}
-// SelectionSort(a)
-// fmt.Println(a)
-// minPartitions("1234")
-// a, b := Swap("world", "hello")
-// fmt.Println(a, b)
-// fmt.Println(Add(42, 13))
-// fmt.Print(math.Pi)
-// fmt.Printf("Now you have %g problems.\n", math.Sqrt(7))
-//Random number
-// fmt.Println("the number is", rand.Seed())
-// fmt.Println("My favorite number is", rand.Intn(10))
-// items := []int{1, 3, 5, 9, 12}
-// fmt.Println(BinarySearch(items, 6))
-// x := math.Log2(256)
-// fmt.Println(x)
-// fmt.Println(isPaindrome(334))
-// words := regexp.MustCompile("[,%_ ]{1}").Split(refString, -1)
-// for idx, word := range words {
-// 	fmt.Printf("Word %d is: %s\n", idx+1, word)
-// }
-// }
-
-// words := strings.FieldsFunc(refString, unicode.IsSpace)
-// for idx, word := range words {
-// 	fmt.Printf("Word %d is: %s\n", idx+1, word)
-// }
-// splitFunc := func(r rune) bool {
-// 	return strings.ContainsRune("*%,_ ", r)
-// }
-
-// words := strings.FieldsFunc(valString, splitFunc)
-// for idx, word := range words {
-// 	fmt.Printf("Word %d is: %s\n", idx+1, word)
-// }
-// }
